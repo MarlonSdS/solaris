@@ -5,9 +5,8 @@
  */
 package controladores;
 
-
 import java.util.List;
-import objetos.Usuario;
+import objetos.Empresa;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.HibernateUtil;
@@ -16,7 +15,7 @@ import util.HibernateUtil;
  *
  * @author Marlo
  */
-public class UsuarioDAO {
+public class EmpresaDAO {
     Session sessao;
     Transaction transacao;
     
@@ -26,30 +25,30 @@ public class UsuarioDAO {
         transacao = sessao.beginTransaction();
     }
     
-    public void salvarUsuario(Usuario usuario){
+    public void salvarEmpresa(Empresa empresa){
         criarSessao();
-        sessao.save(usuario);
+        sessao.save(empresa);
         transacao.commit();
         sessao.close();
     }
     
-        public void editarUsuario(Usuario usuario){
+        public void editarEmpresa(Empresa empresa){
         criarSessao();
-        sessao.update(usuario);
+        sessao.update(empresa);
         transacao.commit();
         sessao.close();
     }
         
-        public void excluirUsuario(Usuario usuario){
+        public void excluirEmpresa(Empresa empresa){
         criarSessao();
-        sessao.delete(usuario);
+        sessao.delete(empresa);
         transacao.commit();
         sessao.close();
     }
-        public List<Usuario> listarUsuario(){
+        public List<Empresa> listarEmpresa(){
             criarSessao();
-            List<Usuario> usuarios = sessao.createCriteria(Usuario.class).list();
+            List<Empresa> empresas = sessao.createCriteria(Empresa.class).list();
             sessao.close();
-            return usuarios;
+            return empresas;
         }
 }
