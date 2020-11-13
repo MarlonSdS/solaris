@@ -5,17 +5,33 @@
  */
 package telas;
 
+import controladores.EmpresaDAO;
+import controladores.UsuarioDAO;
+import objetos.Empresa;
+import objetos.EmpresaTableModel;
+import objetos.Usuario;
+import objetos.UsuarioTableModel;
+
 /**
  *
  * @author Gabriel
  */
 public class TelaAdmin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaCadastroEmpresa
-     */
+    Usuario usuario = new Usuario();
+    UsuarioDAO dao = new UsuarioDAO();
+    Empresa empresa = new Empresa();
+    EmpresaDAO DAO = new EmpresaDAO();
+
     public TelaAdmin() {
         initComponents();
+
+    }
+
+    public void atualizarTabela() {
+        UsuarioTableModel tm = new UsuarioTableModel(dao.listarUsuario());
+        tabelaUsuario.setModel(tm);
+        EmpresaTableModel etm = new EmpresaTableModel(DAO.listarEmpresa());
     }
 
     /**
@@ -30,7 +46,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tlb_usu = new javax.swing.JTable();
+        tabelaUsuario = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -41,7 +57,7 @@ public class TelaAdmin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        tlb_usu.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -52,7 +68,7 @@ public class TelaAdmin extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "ID", "Nome", "Senha", "Login"
+                "Id", "Nome", "Login", "Senha"
             }
         ) {
             Class[] types = new Class [] {
@@ -70,7 +86,7 @@ public class TelaAdmin extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(tlb_usu);
+        jScrollPane2.setViewportView(tabelaUsuario);
 
         jButton5.setText("Editar");
 
@@ -205,7 +221,7 @@ public class TelaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        
+
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
@@ -254,7 +270,7 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable tabelaUsuario;
     private javax.swing.JTable tblEmp;
-    private javax.swing.JTable tlb_usu;
     // End of variables declaration//GEN-END:variables
 }

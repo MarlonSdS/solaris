@@ -6,7 +6,6 @@
 package telas;
 
 import controladores.UsuarioDAO;
-import javax.swing.JOptionPane;
 import objetos.Usuario;
 
 /**
@@ -27,7 +26,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         campoLogin.setText("");
         campoNome.setText("");
         campoSenha.setText("");
-        usuario = new Usuario();
+
     }
 
     public TelaCadastroUsuario() {
@@ -132,13 +131,11 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-
         usuario.setEmailUsuario(campoLogin.getText());
         usuario.setNomeUsuario(campoNome.getText());
         usuario.setSenhaUsuario(campoSenha.getText());
         dao.salvarUsuario(usuario);
         limparCampos();
-        JOptionPane.showMessageDialog(null, "Uusário salvo com sucesso!");
 
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
@@ -157,16 +154,24 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
