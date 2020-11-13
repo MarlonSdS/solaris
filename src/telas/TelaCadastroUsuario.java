@@ -6,6 +6,7 @@
 package telas;
 
 import controladores.UsuarioDAO;
+import javax.swing.JOptionPane;
 import objetos.Usuario;
 
 /**
@@ -17,22 +18,22 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     /**
      * Creates new form CadastroUsuario
      */
-    
     Usuario usuario = new Usuario();
     UsuarioDAO dao = new UsuarioDAO();
+
     //metodo para limpar todas as caixas de texto após salvar um usuário
-    public void limparCampos(){
+    public void limparCampos() {
         Usuario usuario = new Usuario();
         campoLogin.setText("");
         campoNome.setText("");
         campoSenha.setText("");
+        usuario = new Usuario();
     }
-    
+
     public TelaCadastroUsuario() {
         initComponents();
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -131,11 +132,15 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+
         usuario.setEmailUsuario(campoLogin.getText());
         usuario.setNomeUsuario(campoNome.getText());
         usuario.setSenhaUsuario(campoSenha.getText());
         dao.salvarUsuario(usuario);
         limparCampos();
+        JOptionPane.showMessageDialog(null, "Uusário salvo com sucesso!");
+
+
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**

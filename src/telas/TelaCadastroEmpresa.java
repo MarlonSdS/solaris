@@ -17,17 +17,19 @@ public class TelaCadastroEmpresa extends javax.swing.JFrame {
     /**
      * Creates new form TelaCadastroEmpresa
      */
-     Empresa empresa = new Empresa();
-     EmpresaDAO dao = new EmpresaDAO();
+    Empresa empresa = new Empresa();
+    EmpresaDAO dao = new EmpresaDAO();
+
     //metodo para limpar todas as caixas de texto após salvar um usuário
-    public void limparCampos(){
+    public void limparCampos() {
         Empresa empresa = new Empresa();
         campoNome.setText("");
         campoEmail.setText("");
         campoEnd.setText("");
         campoTel.setText("");
+        empresa = new Empresa();
     }
-    
+
     public TelaCadastroEmpresa() {
         initComponents();
     }
@@ -65,6 +67,18 @@ public class TelaCadastroEmpresa extends javax.swing.JFrame {
         campoNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoNomeActionPerformed(evt);
+            }
+        });
+
+        campoEnd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoEndActionPerformed(evt);
+            }
+        });
+
+        campoTel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoTelActionPerformed(evt);
             }
         });
 
@@ -143,10 +157,6 @@ public class TelaCadastroEmpresa extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void campoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoNomeActionPerformed
-
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         empresa.setEmailEmpresa(campoEmail.getText());
         empresa.setEnderecoEmpresa(campoEnd.getText());
@@ -155,6 +165,18 @@ public class TelaCadastroEmpresa extends javax.swing.JFrame {
         dao.salvarEmpresa(empresa);
         limparCampos();
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void campoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoNomeActionPerformed
+
+    private void campoEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEndActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoEndActionPerformed
+
+    private void campoTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoTelActionPerformed
 
     /**
      * @param args the command line arguments

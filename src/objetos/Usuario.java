@@ -16,7 +16,7 @@ import javax.persistence.Id;
  */
 @Entity
 public class Usuario {
-    
+
     @Id
     @GeneratedValue
     private int id;
@@ -58,6 +58,5 @@ public class Usuario {
     public void setSenhaUsuario(String senhaUsuario) {
         this.senhaUsuario = senhaUsuario;
     }
-    
-    
+
 }

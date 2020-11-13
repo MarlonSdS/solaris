@@ -131,8 +131,14 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="campoEnd">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoEndActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="campoTel">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoTelActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="campoEmail">
         </Component>

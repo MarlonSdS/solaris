@@ -9,23 +9,24 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
 /**
  *
  * @author Gabriel
  */
 @Entity
 public class Empresa {
-  
+
     @Id
     @GeneratedValue
     private int id;
     @Column(nullable = false, length = 100)
     private String nomeEmpresa;
-      @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 100)
     private String enderecoEmpresa;
-      @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 100)
     private String telefoneEmpresa;
-      @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 100)
     private String emailEmpresa;
 
     public int getId() {
@@ -67,5 +68,5 @@ public class Empresa {
     public void setEmailEmpresa(String emailEmpresa) {
         this.emailEmpresa = emailEmpresa;
     }
-    
+
 }

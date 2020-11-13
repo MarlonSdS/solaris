@@ -4,9 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Gabriel/Documents/GitHub/solaris/src/telas/TelaCadastroUsuario.java</file>
-            <file>file:/C:/Users/Gabriel/Documents/GitHub/solaris/src/telas/TelaAdmin.java</file>
-            <file>file:/C:/Users/Gabriel/Documents/GitHub/solaris/src/hibernate.cfg.xml</file>
-            <file>file:/C:/Users/Gabriel/Documents/GitHub/solaris/src/telas/TelaCadastroEmpresa.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/GitHub/solaris/src/controladores/UsuarioDAO.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/GitHub/solaris/src/objetos/Usuario.java</file>
             <file>file:/C:/Users/Gabriel/Documents/GitHub/solaris/src/telas/TelaLogin.java</file>
         </group>
     </open-files>
