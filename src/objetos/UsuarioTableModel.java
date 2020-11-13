@@ -16,10 +16,10 @@ import javax.swing.table.AbstractTableModel;
 public class UsuarioTableModel extends AbstractTableModel {
 
     private List<Usuario> usuarios = new ArrayList<>();
-    private String[] colunas;
+    private String[] colunas = {"Id", "Nome", "Login", "Senha"};
     
     public UsuarioTableModel(List<Usuario> usuarios) {
-
+        this.usuarios = usuarios;
     }
 
     @Override
@@ -41,9 +41,9 @@ public class UsuarioTableModel extends AbstractTableModel {
             case 1:
                 return usuario.getNomeUsuario();
             case 2:
-                return usuario.getSenhaUsuario();
+                return usuario.getEmailUsuario();
             case 3:
-                return usuario.getLoginUsuario();
+                return usuario.getSenhaUsuario();
 
         }
         return null;

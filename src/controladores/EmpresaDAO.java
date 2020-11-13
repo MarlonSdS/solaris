@@ -7,8 +7,10 @@ package controladores;
 
 import java.util.List;
 import objetos.Empresa;
+import objetos.Usuario;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import util.HibernateUtil;
 
 /**
@@ -50,5 +52,11 @@ public class EmpresaDAO {
             List<Empresa> empresas = sessao.createCriteria(Empresa.class).list();
             sessao.close();
             return empresas;
+        }
+        public Empresa pesquisarEmpresaPorId(int id){
+            criarSessao();
+            Empresa empresa = (Empresa) sessao.createCriteria(Empresa.class).add(Restrictions.eq("id", id)).uniqueResult();
+            sessao.close();
+            return empresa;
         }
 }

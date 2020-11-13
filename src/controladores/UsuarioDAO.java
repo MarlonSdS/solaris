@@ -10,6 +10,7 @@ import java.util.List;
 import objetos.Usuario;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import util.HibernateUtil;
 
 /**
@@ -51,5 +52,12 @@ public class UsuarioDAO {
             List<Usuario> usuarios = sessao.createCriteria(Usuario.class).list();
             sessao.close();
             return usuarios;
+        }
+        
+        public Usuario pesquisarUsuarioPorId(int id){
+            criarSessao();
+            Usuario usuario = (Usuario) sessao.createCriteria(Usuario.class).add(Restrictions.eq("id", id)).uniqueResult();
+            sessao.close();
+            return usuario;
         }
 }

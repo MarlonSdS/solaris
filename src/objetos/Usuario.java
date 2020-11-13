@@ -27,7 +27,6 @@ public class Usuario {
     @Column(nullable = false, length = 100)
     private String senhaUsuario;
     @Column(nullable = false, length = 100)
-    public String loginUsuario;
 
     public int getId() {
         return id;
@@ -61,12 +60,5 @@ public class Usuario {
         this.senhaUsuario = senhaUsuario;
     }
 
-    public String getLoginUsuario() {
-        return loginUsuario;
-    }
-
-    public void setLoginUsuario(String loginUsuario) {
-        this.loginUsuario = loginUsuario;
-    }
 
 }

@@ -16,10 +16,10 @@ import javax.swing.table.AbstractTableModel;
 public class EmpresaTableModel extends AbstractTableModel {
 
     private List<Empresa> empresas = new ArrayList<>();
-    private String[] colunas;
+    private String[] colunas = {"Id", "Nome", "Endereço", "Telefone", "Email"};
 
     public EmpresaTableModel(List<Empresa> empresas) {
-
+        this.empresas = empresas;
     }
 
     @Override
@@ -62,6 +62,8 @@ public class EmpresaTableModel extends AbstractTableModel {
                 return colunas[2];
             case 3:
                 return colunas[3];
+            case 4:
+                return colunas[4];
         }
         return null;
 
