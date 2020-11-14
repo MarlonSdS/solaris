@@ -43,7 +43,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblUser = new javax.swing.JTable();
-        jButton5 = new javax.swing.JButton();
+        btnEditarUsuario = new javax.swing.JButton();
         btnExcluirUsuario = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -84,7 +84,12 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblUser);
 
-        jButton5.setText("Editar");
+        btnEditarUsuario.setText("Editar");
+        btnEditarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarUsuarioActionPerformed(evt);
+            }
+        });
 
         btnExcluirUsuario.setText("Excluir");
         btnExcluirUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -100,7 +105,7 @@ public class TelaAdmin extends javax.swing.JFrame {
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 798, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton5)
+                .addComponent(btnEditarUsuario)
                 .addGap(79, 79, 79)
                 .addComponent(btnExcluirUsuario)
                 .addGap(307, 307, 307))
@@ -112,7 +117,7 @@ public class TelaAdmin extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5)
+                    .addComponent(btnEditarUsuario)
                     .addComponent(btnExcluirUsuario))
                 .addGap(0, 342, Short.MAX_VALUE))
         );
@@ -237,6 +242,19 @@ public class TelaAdmin extends javax.swing.JFrame {
             atualizarTabela();
         }
     }//GEN-LAST:event_btnExcluirUsuarioActionPerformed
+    TelaCadastroUsuario cadastro = new TelaCadastroUsuario();
+    private void btnEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarUsuarioActionPerformed
+         int linha = tblUser.getSelectedRow();
+        if(linha == -1){
+            JOptionPane.showMessageDialog(null, "Selecione um usuário para poder editar");
+        }else{
+            usuario = dao.pesquisarUsuarioPorId((int) tblUser.getValueAt(linha, 0));
+            cadastro.usuario = usuario;
+            cadastro.atulizarCamposConsulta();
+            cadastro.setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_btnEditarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,10 +293,10 @@ public class TelaAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEditarUsuario;
     private javax.swing.JButton btnExcluirEmpresa;
     private javax.swing.JButton btnExcluirUsuario;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

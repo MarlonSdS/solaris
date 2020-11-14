@@ -6,6 +6,7 @@
 package telas;
 
 import controladores.UsuarioDAO;
+import javax.swing.JOptionPane;
 import objetos.Usuario;
 
 /**
@@ -28,10 +29,19 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         campoSenha.setText("");
 
     }
+    
+    public void atulizarCamposConsulta(){
+        campoLogin.setText(usuario.getEmailUsuario());
+        campoNome.setText(usuario.getNomeUsuario());
+        campoSenha.setText(usuario.getSenhaUsuario());
+        
+    }
 
     public TelaCadastroUsuario() {
         initComponents();
     }
+    
+    TelaAdmin adm = new TelaAdmin();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -131,11 +141,21 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+
         usuario.setEmailUsuario(campoLogin.getText());
         usuario.setNomeUsuario(campoNome.getText());
         usuario.setSenhaUsuario(campoSenha.getText());
-        dao.salvarUsuario(usuario);
-        limparCampos();
+        if(usuario.getId() != 0){
+            dao.editarUsuario(usuario);
+            JOptionPane.showMessageDialog(null, "Usuário editado com sucesso");
+            adm.setVisible(true);
+            dispose();
+        }else{
+            dao.salvarUsuario(usuario);
+            JOptionPane.showMessageDialog(null, "Usuário salvo com sucesso");
+            limparCampos();
+        }
+        
 
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
