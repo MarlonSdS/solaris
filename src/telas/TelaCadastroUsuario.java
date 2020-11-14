@@ -41,7 +41,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         initComponents();
     }
     
-    TelaAdmin adm = new TelaAdmin();
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,6 +60,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         campoLogin = new javax.swing.JTextField();
         campoSenha = new javax.swing.JTextField();
         btnCadastrar = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,6 +74,13 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarActionPerformed(evt);
+            }
+        });
+
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
             }
         });
 
@@ -96,7 +104,9 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(campoLogin))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(btnVoltar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCadastrar)
                 .addContainerGap())
         );
@@ -116,7 +126,9 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCadastrar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCadastrar)
+                    .addComponent(btnVoltar))
                 .addContainerGap(239, Short.MAX_VALUE))
         );
 
@@ -138,6 +150,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
@@ -148,6 +161,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         if(usuario.getId() != 0){
             dao.editarUsuario(usuario);
             JOptionPane.showMessageDialog(null, "Usuário editado com sucesso");
+            TelaAdmin adm = new TelaAdmin();
             adm.setVisible(true);
             dispose();
         }else{
@@ -159,6 +173,12 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        TelaLogin login = new TelaLogin();
+        login.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,6 +226,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JTextField campoLogin;
     private javax.swing.JTextField campoNome;
     private javax.swing.JTextField campoSenha;

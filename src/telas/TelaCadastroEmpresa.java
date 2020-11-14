@@ -6,6 +6,7 @@
 package telas;
 
 import controladores.EmpresaDAO;
+import javax.swing.JOptionPane;
 import objetos.Empresa;
 
 /**
@@ -33,6 +34,13 @@ public class TelaCadastroEmpresa extends javax.swing.JFrame {
     public TelaCadastroEmpresa() {
         initComponents();
     }
+    
+     public void atulizarCamposConsulta(){
+         campoNome.setText(empresa.getNomeEmpresa());
+         campoEmail.setText(empresa.getEmailEmpresa());
+         campoEnd.setText(empresa.getEnderecoEmpresa());
+         campoTel.setText(empresa.getTelefoneEmpresa());
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,6 +61,7 @@ public class TelaCadastroEmpresa extends javax.swing.JFrame {
         campoTel = new javax.swing.JTextField();
         campoEmail = new javax.swing.JTextField();
         btnCadastrar = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,12 +98,21 @@ public class TelaCadastroEmpresa extends javax.swing.JFrame {
             }
         });
 
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(152, 152, 152)
+                .addContainerGap()
+                .addComponent(btnVoltar)
+                .addGap(69, 69, 69)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnCadastrar)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,7 +133,7 @@ public class TelaCadastroEmpresa extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addContainerGap(265, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +155,9 @@ public class TelaCadastroEmpresa extends javax.swing.JFrame {
                     .addComponent(jLabel12)
                     .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCadastrar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCadastrar)
+                    .addComponent(btnVoltar))
                 .addContainerGap(214, Short.MAX_VALUE))
         );
 
@@ -153,6 +173,7 @@ public class TelaCadastroEmpresa extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
@@ -160,8 +181,17 @@ public class TelaCadastroEmpresa extends javax.swing.JFrame {
         empresa.setEnderecoEmpresa(campoEnd.getText());
         empresa.setNomeEmpresa(campoNome.getText());
         empresa.setTelefoneEmpresa(campoTel.getText());
-        dao.salvarEmpresa(empresa);
-        limparCampos();
+        if(empresa.getId() != 0){
+            dao.editarEmpresa(empresa);
+            JOptionPane.showMessageDialog(null, "Empresa editado com sucesso");
+            TelaAdmin adm = new TelaAdmin();
+            adm.setVisible(true);
+            dispose();
+        }else{
+            dao.salvarEmpresa(empresa);
+            limparCampos();
+        }
+        
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void campoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeActionPerformed
@@ -175,6 +205,11 @@ public class TelaCadastroEmpresa extends javax.swing.JFrame {
     private void campoTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoTelActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        TelaAdmin adm = new TelaAdmin();
+        adm.setVisible(true);
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,6 +251,7 @@ public class TelaCadastroEmpresa extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JTextField campoEmail;
     private javax.swing.JTextField campoEnd;
     private javax.swing.JTextField campoNome;

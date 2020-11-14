@@ -45,11 +45,15 @@ public class TelaAdmin extends javax.swing.JFrame {
         tblUser = new javax.swing.JTable();
         btnEditarUsuario = new javax.swing.JButton();
         btnExcluirUsuario = new javax.swing.JButton();
+        btnVoltar2 = new javax.swing.JButton();
+        btnCadatroUser = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEmp = new javax.swing.JTable();
-        btnSalvar = new javax.swing.JButton();
+        btnEditarEmpresa = new javax.swing.JButton();
         btnExcluirEmpresa = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,17 +102,35 @@ public class TelaAdmin extends javax.swing.JFrame {
             }
         });
 
+        btnVoltar2.setText("Voltar");
+        btnVoltar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltar2ActionPerformed(evt);
+            }
+        });
+
+        btnCadatroUser.setText("Cadastrar Usuário");
+        btnCadatroUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadatroUserActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 798, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(btnVoltar2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
                 .addComponent(btnEditarUsuario)
                 .addGap(79, 79, 79)
                 .addComponent(btnExcluirUsuario)
-                .addGap(307, 307, 307))
+                .addGap(224, 224, 224)
+                .addComponent(btnCadatroUser)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,8 +139,12 @@ public class TelaAdmin extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEditarUsuario)
-                    .addComponent(btnExcluirUsuario))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnEditarUsuario)
+                        .addComponent(btnVoltar2))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnExcluirUsuario)
+                        .addComponent(btnCadatroUser)))
                 .addGap(0, 342, Short.MAX_VALUE))
         );
 
@@ -155,10 +181,10 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblEmp);
 
-        btnSalvar.setText("Editar");
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+        btnEditarEmpresa.setText("Editar");
+        btnEditarEmpresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
+                btnEditarEmpresaActionPerformed(evt);
             }
         });
 
@@ -169,17 +195,35 @@ public class TelaAdmin extends javax.swing.JFrame {
             }
         });
 
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Cadastrar Empresa");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 798, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(263, 263, 263)
-                .addComponent(btnSalvar)
+                .addContainerGap()
+                .addComponent(btnVoltar)
+                .addGap(180, 180, 180)
+                .addComponent(btnEditarEmpresa)
                 .addGap(73, 73, 73)
                 .addComponent(btnExcluirEmpresa)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,7 +233,9 @@ public class TelaAdmin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnExcluirEmpresa)
-                    .addComponent(btnSalvar))
+                    .addComponent(btnEditarEmpresa)
+                    .addComponent(btnVoltar)
+                    .addComponent(jButton1))
                 .addContainerGap(342, Short.MAX_VALUE))
         );
 
@@ -211,11 +257,24 @@ public class TelaAdmin extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalvarActionPerformed
+        //chamada das classe TelaCadastriUsuario e TelaCadastroEmpresa
+        TelaCadastroUsuario cadastro = new TelaCadastroUsuario();
+        TelaCadastroEmpresa register = new TelaCadastroEmpresa();
+    
+    private void btnEditarEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEmpresaActionPerformed
+        int linha = tblEmp.getSelectedRow();
+        if(linha == -1){
+            JOptionPane.showMessageDialog(null, "Selecione uma empresa para poder editar");
+        }else{
+            empresa = DAO.pesquisarEmpresaPorId((int) tblEmp.getValueAt(linha, 0));
+            register.empresa = empresa;
+            register.atulizarCamposConsulta();
+            register.setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_btnEditarEmpresaActionPerformed
 
     private void btnExcluirEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirEmpresaActionPerformed
         int linha = tblEmp.getSelectedRow();
@@ -242,7 +301,7 @@ public class TelaAdmin extends javax.swing.JFrame {
             atualizarTabela();
         }
     }//GEN-LAST:event_btnExcluirUsuarioActionPerformed
-    TelaCadastroUsuario cadastro = new TelaCadastroUsuario();
+
     private void btnEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarUsuarioActionPerformed
          int linha = tblUser.getSelectedRow();
         if(linha == -1){
@@ -255,6 +314,28 @@ public class TelaAdmin extends javax.swing.JFrame {
             dispose();
         }
     }//GEN-LAST:event_btnEditarUsuarioActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        TelaLogin login = new TelaLogin();
+        login.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnVoltar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar2ActionPerformed
+                TelaLogin login = new TelaLogin();
+        login.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnVoltar2ActionPerformed
+
+    private void btnCadatroUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadatroUserActionPerformed
+        cadastro.setVisible(true);
+            dispose();
+    }//GEN-LAST:event_btnCadatroUserActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        register.setVisible(true);
+            dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -293,10 +374,14 @@ public class TelaAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadatroUser;
+    private javax.swing.JButton btnEditarEmpresa;
     private javax.swing.JButton btnEditarUsuario;
     private javax.swing.JButton btnExcluirEmpresa;
     private javax.swing.JButton btnExcluirUsuario;
-    private javax.swing.JButton btnSalvar;
+    private javax.swing.JButton btnVoltar;
+    private javax.swing.JButton btnVoltar2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
