@@ -60,4 +60,11 @@ public class UsuarioDAO {
             sessao.close();
             return usuario;
         }
+        
+        public Usuario pesquisarUsuarioPorLogin(String login){
+            criarSessao();
+             Usuario usuario = (Usuario) sessao.createCriteria(Usuario.class).add(Restrictions.eq("emailUsuario", login)).uniqueResult();
+             sessao.close();
+             return usuario;
+        }
 }

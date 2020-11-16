@@ -5,6 +5,8 @@
  */
 package telas;
 
+import controladores.UsuarioDAO;
+import javax.swing.JOptionPane;
 import objetos.Usuario;
 
 /**
@@ -128,12 +130,24 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         Usuario usuario = new Usuario();
+        UsuarioDAO dao = new UsuarioDAO();
+        TelaInicio inicio = new TelaInicio();
         usuario.setEmailUsuario(campoLogin.getText());
         usuario.setSenhaUsuario(campoSenha.getText());
         if(usuario.getEmailUsuario().equals("admin") && usuario.getSenhaUsuario().equals("admin")){
             TelaAdmin adm = new TelaAdmin();
             adm.setVisible(true);
             dispose();
+        }else if(campoLogin.getText().equals("") || campoSenha.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos");
+        }else{
+            usuario = dao.pesquisarUsuarioPorLogin(campoLogin.getText());
+            if(usuario.getSenhaUsuario().equals(campoSenha.getText())){
+                inicio.setVisible(true);
+                dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Senha incorreta");
+            }
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
