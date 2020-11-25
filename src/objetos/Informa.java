@@ -13,6 +13,7 @@ public class Informa {
     public Double kwh;
     public Double valM;
     public Double valA;
+    public Double areaR;
     
     
 }

@@ -167,13 +167,19 @@ public class TelaInicio extends javax.swing.JFrame {
         login.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
-
-    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         Informa info = new Informa();
-        info.kwh = (Double) campoKwh.getText();
-        info.valM = (Double) campoValM.getText();
-    }//GEN-LAST:event_btnSubmitActionPerformed
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
 
+        info.kwh = Double.parseDouble(campoKwh.getText()) ;
+        info.valM = Double.parseDouble(campoValM.getText());
+    }//GEN-LAST:event_btnSubmitActionPerformed
+    Double energiaCelula = 0.2;
+    Double tamanhoCelula = 0.8;
+    public Double calcularArea(Double kwh, Double valM){
+        Double qtKwh = valM / kwh;
+        Double area = ((qtKwh / energiaCelula)/ tamanhoCelula)/100;
+        return area;
+    }
     /**
      * @param args the command line arguments
      */
