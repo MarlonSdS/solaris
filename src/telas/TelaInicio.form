@@ -119,10 +119,6 @@
                           <Component id="campoKwh" min="-2" pref="151" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -134,8 +130,12 @@
                           <EmptySpace min="-2" pref="356" max="-2" attributes="0"/>
                           <Component id="btnSubmit" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="210" max="32767" attributes="0"/>
+                  <EmptySpace pref="235" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -171,7 +171,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Digite o valor do kW/h em sua regi&#xe3;o. Se n&#xe3;o souber basta olhar em sua conta de luz."/>
+            <Property name="text" type="java.lang.String" value="Digite o valor da tarifa do kW/h em sua regi&#xe3;o. Se n&#xe3;o souber basta olhar em sua conta de luz."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">

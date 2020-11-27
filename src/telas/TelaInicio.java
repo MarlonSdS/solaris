@@ -5,6 +5,7 @@
  */
 package telas;
 
+import javax.swing.JOptionPane;
 import objetos.Informa;
 
 /**
@@ -88,7 +89,7 @@ public class TelaInicio extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Digite o valor do kW/h em sua região. Se não souber basta olhar em sua conta de luz.");
+        jLabel1.setText("Digite o valor da tarifa do kW/h em sua região. Se não souber basta olhar em sua conta de luz.");
 
         jLabel2.setText("Digite o valor médio que você paga por energia elétrica");
 
@@ -112,9 +113,6 @@ public class TelaInicio extends javax.swing.JFrame {
                         .addGap(324, 324, 324)
                         .addComponent(campoKwh, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(179, 179, 179)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(256, 256, 256)
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -122,8 +120,11 @@ public class TelaInicio extends javax.swing.JFrame {
                         .addComponent(campoValM, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(356, 356, 356)
-                        .addComponent(btnSubmit)))
-                .addContainerGap(210, Short.MAX_VALUE))
+                        .addComponent(btnSubmit))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(jLabel1)))
+                .addContainerGap(235, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,15 +171,34 @@ public class TelaInicio extends javax.swing.JFrame {
         Informa info = new Informa();
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
 
-        info.kwh = Double.parseDouble(campoKwh.getText()) ;
+        info.tarifaKwh = Double.parseDouble(campoKwh.getText()) ;
         info.valM = Double.parseDouble(campoValM.getText());
+        
+        calcularWattsMensais(info.tarifaKwh, info.valM);
+        calcularArea();
+        calcularCustoTempo();
+        exibirResultados();
     }//GEN-LAST:event_btnSubmitActionPerformed
-    Double energiaCelula = 0.2;
-    Double tamanhoCelula = 0.8;
-    public Double calcularArea(Double kwh, Double valM){
-        Double qtKwh = valM / kwh;
-        Double area = ((qtKwh / energiaCelula)/ tamanhoCelula)/100;
-        return area;
+
+    public void calcularWattsMensais(Double tarifaKwh, Double valM){
+        info.wattsM = (info.valM / info.tarifaKwh) * 1000;
+    }
+    
+    public void calcularArea(){
+        info.qtPaineis = (int) (info.wattsM / (info.energiaPainel * 30));
+        info.areaR = info.qtPaineis * info.tamanhoPainel;
+    }
+    
+    public void calcularCustoTempo(){
+        Double meses;
+        info.custo = info.qtPaineis * info.precoPainel;
+        meses = (info.custo / info.valM);
+        info.qtMeses = meses.intValue();
+    }
+    
+    public void exibirResultados(){
+        JOptionPane.showMessageDialog(null, "Àrea necessária: "+ info.areaR + "m² \n"
+        + "Custo: "+ info.custo + "\n"+ "Você terá retorno em "+ info.qtMeses + " meses.");
     }
     /**
      * @param args the command line arguments
