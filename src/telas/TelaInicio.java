@@ -41,6 +41,9 @@ public class TelaInicio extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         campoValM = new javax.swing.JTextField();
         btnSubmit = new javax.swing.JButton();
+        campoArea = new javax.swing.JLabel();
+        campoCusto = new javax.swing.JLabel();
+        campoTempo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         jMenu1.setText("jMenu1");
@@ -123,7 +126,13 @@ public class TelaInicio extends javax.swing.JFrame {
                         .addComponent(btnSubmit))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(154, 154, 154)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(campoCusto)
+                            .addComponent(campoArea)
+                            .addComponent(campoTempo))))
                 .addContainerGap(235, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -140,7 +149,13 @@ public class TelaInicio extends javax.swing.JFrame {
                 .addComponent(campoValM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSubmit)
-                .addContainerGap(350, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addComponent(campoArea)
+                .addGap(18, 18, 18)
+                .addComponent(campoCusto)
+                .addGap(18, 18, 18)
+                .addComponent(campoTempo)
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
         setJMenuBar(jMenuBar1);
@@ -157,7 +172,7 @@ public class TelaInicio extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 30, Short.MAX_VALUE))
+                .addGap(0, 78, Short.MAX_VALUE))
         );
 
         pack();
@@ -197,8 +212,9 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     public void exibirResultados(){
-        JOptionPane.showMessageDialog(null, "Àrea necessária: "+ info.areaR + "m² \n"
-        + "Custo: "+ info.custo + "\n"+ "Você terá retorno em "+ info.qtMeses + " meses.");
+        campoArea.setText("Àrea necessária: "+ info.areaR + "m²");
+        campoCusto.setText("Custo: "+ info.custo );
+        campoTempo.setText("Você terá retorno em "+ info.qtMeses + " meses.");
     }
     /**
      * @param args the command line arguments
@@ -238,7 +254,10 @@ public class TelaInicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSubmit;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JLabel campoArea;
+    private javax.swing.JLabel campoCusto;
     private javax.swing.JTextField campoKwh;
+    private javax.swing.JLabel campoTempo;
     private javax.swing.JTextField campoValM;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
