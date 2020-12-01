@@ -68,5 +68,10 @@ public class Empresa {
     public void setEmailEmpresa(String emailEmpresa) {
         this.emailEmpresa = emailEmpresa;
     }
+    
+    @Override
+    public String toString(){
+        return this.nomeEmpresa + "\n"+ this.emailEmpresa + "\n" + this.telefoneEmpresa +"\n"+ this.enderecoEmpresa;
+    }
 
 }
