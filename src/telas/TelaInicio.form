@@ -142,6 +142,10 @@
                               <Component id="campoValM" min="-2" pref="149" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="350" max="-2" attributes="0"/>
+                          <Component id="btnVerEmp" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace pref="235" max="32767" attributes="0"/>
               </Group>
@@ -169,7 +173,9 @@
                   <Component id="campoCusto" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="campoTempo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="213" max="32767" attributes="0"/>
+                  <EmptySpace pref="143" max="32767" attributes="0"/>
+                  <Component id="btnVerEmp" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -210,6 +216,14 @@
         <Component class="javax.swing.JLabel" name="campoCusto">
         </Component>
         <Component class="javax.swing.JLabel" name="campoTempo">
+        </Component>
+        <Component class="javax.swing.JButton" name="btnVerEmp">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ver empresas na regi&#xe3;o"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerEmpActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

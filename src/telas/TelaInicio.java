@@ -44,6 +44,7 @@ public class TelaInicio extends javax.swing.JFrame {
         campoArea = new javax.swing.JLabel();
         campoCusto = new javax.swing.JLabel();
         campoTempo = new javax.swing.JLabel();
+        btnVerEmp = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         jMenu1.setText("jMenu1");
@@ -103,6 +104,13 @@ public class TelaInicio extends javax.swing.JFrame {
             }
         });
 
+        btnVerEmp.setText("Ver empresas na região");
+        btnVerEmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerEmpActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -132,7 +140,10 @@ public class TelaInicio extends javax.swing.JFrame {
                             .addComponent(btnSubmit))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addGap(324, 324, 324)
-                            .addComponent(campoValM, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(campoValM, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(350, 350, 350)
+                        .addComponent(btnVerEmp)))
                 .addContainerGap(235, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -156,7 +167,9 @@ public class TelaInicio extends javax.swing.JFrame {
                 .addComponent(campoCusto)
                 .addGap(18, 18, 18)
                 .addComponent(campoTempo)
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                .addComponent(btnVerEmp)
+                .addGap(38, 38, 38))
         );
 
         setJMenuBar(jMenuBar1);
@@ -195,6 +208,12 @@ public class TelaInicio extends javax.swing.JFrame {
         calcularCustoTempo();
         exibirResultados();
     }//GEN-LAST:event_btnSubmitActionPerformed
+
+    private void btnVerEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerEmpActionPerformed
+        TelaListaEmpresas lista = new TelaListaEmpresas();
+        lista.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnVerEmpActionPerformed
 
     public void calcularWattsMensais(Double tarifaKwh, Double valM){
         info.wattsM = (info.valM / info.tarifaKwh) * 1000;
@@ -254,6 +273,7 @@ public class TelaInicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSubmit;
+    private javax.swing.JButton btnVerEmp;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel campoArea;
     private javax.swing.JLabel campoCusto;

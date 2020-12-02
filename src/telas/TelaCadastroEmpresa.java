@@ -209,6 +209,7 @@ public class TelaCadastroEmpresa extends javax.swing.JFrame {
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         TelaAdmin adm = new TelaAdmin();
         adm.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**

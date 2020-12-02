@@ -23,18 +23,29 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="telE" min="-2" pref="323" max="-2" attributes="0"/>
-                  <Component id="nomeE" min="-2" pref="323" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="42" max="32767" attributes="0"/>
-          </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Component id="endE" min="-2" pref="323" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="telE" min="-2" pref="323" max="-2" attributes="0"/>
+                          <Component id="nomeE" min="-2" pref="323" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="36" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnVoltar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnProx" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
@@ -54,7 +65,12 @@
               <Component id="telE" min="-2" pref="26" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="endE" min="-2" pref="26" max="-2" attributes="0"/>
-              <EmptySpace pref="112" max="32767" attributes="0"/>
+              <EmptySpace pref="74" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnProx" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
@@ -74,6 +90,22 @@
     <Component class="javax.swing.JLabel" name="emailE">
     </Component>
     <Component class="javax.swing.JLabel" name="endE">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnVoltar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Voltar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVoltarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnProx">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pr&#xf3;xima"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProxActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

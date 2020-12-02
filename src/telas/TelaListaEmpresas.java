@@ -24,6 +24,7 @@ public class TelaListaEmpresas extends javax.swing.JFrame {
         initComponents();
         preencherFila();
         exibirEmpresas();
+        checarFila();
     }
     Queue filaEmpresas = new LinkedList<>();
     List listaEmpresas = new ArrayList<>();
@@ -67,23 +68,47 @@ public class TelaListaEmpresas extends javax.swing.JFrame {
         telE = new javax.swing.JLabel();
         emailE = new javax.swing.JLabel();
         endE = new javax.swing.JLabel();
+        btnVoltar = new javax.swing.JButton();
+        btnProx = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
+        btnProx.setText("Próxima");
+        btnProx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(telE, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nomeE, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(42, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(endE, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(telE, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nomeE, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 36, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnVoltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnProx)))
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(45, Short.MAX_VALUE)
@@ -99,7 +124,11 @@ public class TelaListaEmpresas extends javax.swing.JFrame {
                 .addComponent(telE, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(endE, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVoltar)
+                    .addComponent(btnProx))
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(79, 79, 79)
@@ -109,6 +138,32 @@ public class TelaListaEmpresas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+       TelaInicio inicio = new TelaInicio();
+       inicio.setVisible(true);
+       dispose();
+    }//GEN-LAST:event_btnVoltarActionPerformed
+    boolean vazia = false;
+    
+    public void checarFila(){
+        if(filaEmpresas.isEmpty()){
+            vazia = true;
+            btnProx.setText("Volar à primeira");
+                    
+        }
+    }
+    
+    private void btnProxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProxActionPerformed
+        if(vazia == true){
+            preencherFila();
+            exibirEmpresas();
+        }else{
+            exibirEmpresas();
+            checarFila();
+        }
+
+    }//GEN-LAST:event_btnProxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,6 +201,8 @@ public class TelaListaEmpresas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnProx;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel emailE;
     private javax.swing.JLabel endE;
     private javax.swing.JLabel nomeE;
