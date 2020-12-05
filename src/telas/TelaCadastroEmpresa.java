@@ -189,7 +189,10 @@ public class TelaCadastroEmpresa extends javax.swing.JFrame {
             dispose();
         }else{
             dao.salvarEmpresa(empresa);
+            JOptionPane.showMessageDialog(null, "Empresa salva com sucesso");
             limparCampos();
+            empresa = new Empresa();
+            
         }
         
     }//GEN-LAST:event_btnCadastrarActionPerformed

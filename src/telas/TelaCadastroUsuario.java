@@ -168,6 +168,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             dao.salvarUsuario(usuario);
             JOptionPane.showMessageDialog(null, "Usuário salvo com sucesso");
             limparCampos();
+            usuario = new Usuario();
         }
         
 
