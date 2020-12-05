@@ -56,6 +56,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(730, 400));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(600, 500));
 
